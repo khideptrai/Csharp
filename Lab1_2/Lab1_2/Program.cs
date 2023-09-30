@@ -27,6 +27,7 @@
         Console.WriteLine("Luong co ban: {0:N}", salary);
         Console.WriteLine("Tien thuong: {0:N}", bonus);
         Console.WriteLine("Tong luong: {0:N}", totalSalary);
+        Console.Read();
 
     }
 }
