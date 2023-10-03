@@ -36,5 +36,6 @@
                 Console.WriteLine("Day khong phai la 3 canh cua tam giac");
             }
         }
+        Console.Read();
     } 
 }

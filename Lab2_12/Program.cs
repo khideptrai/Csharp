@@ -26,8 +26,8 @@
                 }
                 Console.Write(temp);
             }
-            Console.WriteLine();
-           
+            Console.WriteLine();       
         }
+        Console.Read();
     }
 }

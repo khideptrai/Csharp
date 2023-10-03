@@ -29,6 +29,7 @@
         {
             Console.WriteLine("Thong tin nhap khong hop le");
         }
+        Console.Read();
 
     }
 }

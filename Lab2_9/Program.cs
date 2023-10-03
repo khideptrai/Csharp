@@ -14,5 +14,6 @@
                 Console.Write(" " + i);
             }
         }
+        Console.Read();
     }
 }
