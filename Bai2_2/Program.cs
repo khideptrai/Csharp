@@ -10,8 +10,7 @@
             hour = seconds / 3600;
             minute = (seconds % 3600) / 60;
             int seconds_1 = seconds % 60;
-            string ketQua = string.Format("{0:00}:{1:00}:{2:00}", hour, minute, seconds_1);
-            Console.WriteLine(ketQua);
+            Console.WriteLine("{0:00}:{1:00}:{2:00}", hour, minute, seconds_1);
         }
         else
         {
