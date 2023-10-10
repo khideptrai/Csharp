@@ -24,4 +24,37 @@
         get { return id; }
         set { id = value; }
     }
+    public string Firtsname
+    {
+        get { return firtsname; }
+        set { firtsname = value; }
+    }
+    public string Lastname
+    {
+        get { return lastname; }
+        set { lastname = value; }
+    }
+    public string Address
+    {
+        get { return address; }
+        set { address = value; }
+    }
+    public string Phone
+    {
+        get { return phone; }
+        set { phone = value; }
+    }
+    public string Email
+    {
+        get { return email; }
+        set { email = value; }
+    }
+    public void Display()
+    {
+        Console.WriteLine("Ma so:" + id);
+        Console.WriteLine("Ho va ten {0} {1}", firtsname, lastname);
+        Console.WriteLine("Dia chi: " + address);
+        Console.WriteLine("So dien thoai: " + phone);
+        Console.WriteLine("Email: " + email);
+    }
 }
