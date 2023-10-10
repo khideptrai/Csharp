@@ -20,7 +20,7 @@ namespace Bai3_5
             this.pages = pages;
             this.isbn = isbn;
             this.title = title;
-            this.currentPage = 1;
+            currentPage = 1;
         }
         public Book(string author,int pages,string isbn,string title,int currentPage)
         {

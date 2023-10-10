@@ -9,6 +9,9 @@ class Program
         sach1.Price = 100;
         Console.WriteLine("Thong tin sach sau khi thay doi:");
         Console.WriteLine(sach1.ToString() );
+        Book book2 = new Book();
+        Console.WriteLine(book2.ToString());
+        Console.Read();
         
     }
 }
