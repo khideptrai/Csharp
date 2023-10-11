@@ -10,27 +10,6 @@
         year = Convert.ToInt32(Console.ReadLine());
         int tinhCan = year % 10;
         int tinhChi = year % 12;
-        for(int i = 0; i < CAN.Length; i++)
-        {
-            if(i == tinhCan)
-            {
-                CanChi.Add(CAN[i]);
-            }
-        }
-        for(int j = 0;j< Chi.Length; j++)
-        {
-            if(j == tinhChi)
-            {
-                CanChi.Add(Chi[j]);
-            }
-        }
-        Console.WriteLine("Nam am tuong ung cua nam {0} la:");
-        foreach(string str in CanChi)
-        {
-            Console.Write(str+ " ");
-        }
-
-        
-
+        Console.WriteLine("Nam am tuong ung cua nam {0} la: {1} {2}", year, CAN[tinhCan], Chi[tinhChi]);
     }
 }
