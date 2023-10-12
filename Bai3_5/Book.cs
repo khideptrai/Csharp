@@ -14,12 +14,8 @@ namespace Bai3_5
         private string title;
         public int currentPage;
 
-        public Book(string author, int pages, string isbn, string title)
+        public Book()
         {
-            this.author = author;
-            this.pages = pages;
-            this.isbn = isbn;
-            this.title = title;
             currentPage = 1;
         }
         public Book(string author,int pages,string isbn,string title,int currentPage)
@@ -30,14 +26,14 @@ namespace Bai3_5
             this.title = title;
             this.currentPage = currentPage;
         }
-        public void flipPageForward()
+        public void FlipPageForward()
         {
             if(currentPage < pages)
             {
                 currentPage++;
             }
         }
-        public void flipPageBackward()
+        public void FlipPageBackward()
         {
            if(currentPage > 1)
             {

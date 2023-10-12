@@ -2,7 +2,7 @@
 {
     static void Main(string[] args)
     {
-        int n = 11;
+        int n = 15;
         for(int i = 0;i < n; i++)
         {
             for(int j = 0; j <= n - i; j++)
