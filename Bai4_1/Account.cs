@@ -64,7 +64,7 @@ namespace Bai4_1
         }      
         public double GetInterest()
         {
-            return Balance * rate/100;
+            return Balance * rate;
         }
     }
     class CheckAccount : Account
