@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Transactions;
 
 namespace Bai4_1
 {
@@ -14,13 +13,13 @@ namespace Bai4_1
         public Account(double Initialize)
         {
             this.Initialize = Initialize;
-            Balance = Initialize;
+            this.Balance += Initialize;
         }
         public virtual void Deposit(double money)
         {
             if(money > 0)
             {
-                Balance += money;
+                Balance = Initialize + money;
                 Console.WriteLine("Ban da gui thanh cong so tien {0}, Tai khoan ban hien tai co: {1}", money, Balance);
             }
             else
@@ -34,13 +33,15 @@ namespace Bai4_1
             {
                 Console.WriteLine("Tai khoan cua ban khong co tien de rut");
             }
-            else if(money < 0)
+            else if (money < 0)
             {
-                Console.WriteLine("So tien can rut khong hop le");
+                Console.WriteLine("So tien du khong hop le");
             }
             else if(Balance - money < 0)
             {
                 Console.WriteLine("So du tai khong dap ung yeu cau rut cua ban");
+            }else if(money < 0){
+                Console.WriteLine("So tien du khong hop le");
             }
             else
             {
@@ -56,38 +57,46 @@ namespace Bai4_1
     class SavingAccount : Account
     {
         protected double rate;
-        public SavingAccount(double Initialize, double rate) : base(Initialize)
+        public SavingAccount(double Initialize, double rate)
+            :base(Initialize)
         {
             this.rate = rate;
-        }
+        }      
         public double GetInterest()
         {
-            return Balance * rate;
+            return Balance * rate/100;
         }
     }
     class CheckAccount : Account
     {
-        protected double FeeTransfer;
-        public CheckAccount(double Initialize,double FeeTransfer) : base(Initialize)
+        protected double FeeTranfer;
+        public CheckAccount(double Balance,double FeeTranFer)
+           :base(Balance) 
         {
-            this.FeeTransfer = FeeTransfer;
+            this.FeeTranfer = FeeTranFer;   
         }
         public override void Deposit(double money)
         {
             base.Deposit(money);
-            Balance -= FeeTransfer;
-            Console.WriteLine($"Nap tien thanh cong, ban bi tru {FeeTransfer} tien phi");
+            if(money > 0)
+            {
+                Balance -= FeeTranfer;
+                Console.WriteLine($"Ban da bi tru {FeeTranfer} tien phi,So du hien tai cua ban la {Balance}");
+            }
         }
         public override void WithDraw(double money)
         {
             base.WithDraw(money);
-            Balance -= FeeTransfer;
-            Console.WriteLine($"Rut tien thanh cong, ban bi tru {FeeTransfer} tien phi");
+            if(money > 0)
+            {
+                Balance -= FeeTranfer;
+                Console.WriteLine($"Ban da bi tru {FeeTranfer} tien phi,So du hien tai cua ban la {Balance}");
+            }
         }
         public new double GetBalance()
         {
-            Balance -= FeeTransfer;
-            Console.WriteLine($"Kiem tra tai khoan thanh cong, ban bi tru {FeeTransfer} tien phi");
+            Balance -= FeeTranfer;
+            Console.WriteLine($"Ban da bi tru {FeeTranfer} tien phi,So du hien tai cua ban la {Balance}");
             return Balance;
         }
     }
