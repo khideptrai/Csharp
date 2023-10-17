@@ -13,6 +13,7 @@ namespace Bai4_1
         public Account(double Initialize)
         {
             this.Initialize = Initialize;
+            this.Balance += Initialize;
         }
         public virtual void Deposit(double money)
         {
@@ -32,9 +33,15 @@ namespace Bai4_1
             {
                 Console.WriteLine("Tai khoan cua ban khong co tien de rut");
             }
+            else if (money < 0)
+            {
+                Console.WriteLine("So tien du khong hop le");
+            }
             else if(Balance - money < 0)
             {
                 Console.WriteLine("So du tai khong dap ung yeu cau rut cua ban");
+            }else if(money < 0){
+                Console.WriteLine("So tien du khong hop le");
             }
             else
             {
@@ -44,6 +51,52 @@ namespace Bai4_1
         }
         public double GetBalance()
         {
+            return Balance;
+        }
+    }
+    class SavingAccount : Account
+    {
+        protected double rate;
+        public SavingAccount(double Initialize, double rate)
+            :base(Initialize)
+        {
+            this.rate = rate;
+        }      
+        public double GetInterest()
+        {
+            return Balance * rate/100;
+        }
+    }
+    class CheckAccount : Account
+    {
+        protected double FeeTranfer;
+        public CheckAccount(double Balance,double FeeTranFer)
+           :base(Balance) 
+        {
+            this.FeeTranfer = FeeTranFer;   
+        }
+        public override void Deposit(double money)
+        {
+            base.Deposit(money);
+            if(money > 0)
+            {
+                Balance -= FeeTranfer;
+                Console.WriteLine($"Ban da bi tru {FeeTranfer} tien phi,So du hien tai cua ban la {Balance}");
+            }
+        }
+        public override void WithDraw(double money)
+        {
+            base.WithDraw(money);
+            if(money > 0)
+            {
+                Balance -= FeeTranfer;
+                Console.WriteLine($"Ban da bi tru {FeeTranfer} tien phi,So du hien tai cua ban la {Balance}");
+            }
+        }
+        public new double GetBalance()
+        {
+            Balance -= FeeTranfer;
+            Console.WriteLine($"Ban da bi tru {FeeTranfer} tien phi,So du hien tai cua ban la {Balance}");
             return Balance;
         }
     }
