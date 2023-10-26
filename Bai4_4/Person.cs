@@ -14,7 +14,7 @@ namespace Bai4_4
 
         public override string ToString()
         {
-            return "Person" + Name + Email;
+            return "Class Name: "+GetType() +" Name: "+ Name +" Email: "+ Email;
         }
         public string Name { get { return name; } set { name = value; } }
         public int Phone { get { return phone; } set { phone = value; } }
@@ -23,10 +23,7 @@ namespace Bai4_4
     class Student : Person
     {
         private string studyProgram;
-        public override string ToString()
-        {
-            return "Student" + Name + Email;
-        }
+ 
         public string StudyProgram {  get { return studyProgram; } set {  studyProgram = value; } }
     }
     class Employee : Person
@@ -34,10 +31,7 @@ namespace Bai4_4
         private string department;
         private double salary;
         private DateTime datehired;
-        public override string ToString()
-        {
-            return "Employee" + Name + Email;
-        }
+ 
         public string Department {  get { return department; } set { department = value; } }
         public double Salary { get {  return salary; } set {  salary = value; } }
         public DateTime Datehired { get {  return datehired; } set {  datehired = value; } }
@@ -51,10 +45,7 @@ namespace Bai4_4
     {
         private double officeHours;
         private string rank;
-        public override string ToString()
-        {
-            return "Faculty" + Name + Email;
-        }
+  
         public double OfficeHours {  get { return officeHours; } set { officeHours = value; } }
         public string Rank { get { return rank; } set { rank = value; } }
         public override double CalculateBonus()
@@ -63,7 +54,8 @@ namespace Bai4_4
         }
         public override int CalculateVacation()
         {
-            if(OfficeHours >= (24*365*3))
+            int yearsEmployed = DateTime.Now.Year - Datehired.Year;
+            if (yearsEmployed >= 3)
             {
                 if(Rank == "Senior Lecturer")
                 {
@@ -82,10 +74,6 @@ namespace Bai4_4
     class Staff : Employee
     {
         private string title;
-        public override string ToString()
-        {
-            return "Staff" + Name + Email;
-        }
         public string Title { get { return title; } set { title = value; } }
         public override double CalculateBonus()
         {
