@@ -19,7 +19,7 @@ class Program
         Console.WriteLine("Danh sach xe sau khi xoa nhung xe co mau do: ");
         foreach(var item in car)
         {
-            Console.WriteLine(item.ToString);
+            Console.WriteLine(item.ToString());
         }
     }
 }
