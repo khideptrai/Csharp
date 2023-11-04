@@ -12,6 +12,7 @@ class Program
         ht.Add(5, "Friday");
         ht.Add(6, "Saturday");
         ht.Add(7, "Sunday");
+        ht.Add(8, "");
         if (!ht.Contains("Tuesday"))
         {
             Console.WriteLine("Khong tim thay Tueday");
